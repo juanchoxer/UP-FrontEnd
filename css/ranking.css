@@ -13,18 +13,13 @@
 }
 
 .ranking{
-    padding: 20px;
-}
-
-.ranking h2{
-    font: Verdana;
-    display: flex;
-    justify-content: center;
-    font-size:60px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding-top: 5%;
+    padding-left: 3%;
+    padding-right: 3%;
 }
 
 body{
-    background-color :rgb(240, 240, 240);
     width: 100%;
 }
 

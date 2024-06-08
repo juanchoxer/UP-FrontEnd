@@ -1,0 +1,49 @@
+.registro {
+    padding-top: 5%;
+    padding-left: 25%;
+    padding-right: 25%;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.formCampo {
+    margin-bottom: 15px;
+}
+.formCampo label {
+    display: block;
+    margin-bottom: 5px;
+}
+.formCampo input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+.formSubmit button {
+    display: flex;
+    margin-left: auto;
+    padding: 10px;
+    background-color: rgb(100, 100, 100);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.formSubmit button:hover {
+    background-color: rgb(200, 200, 200);
+} 
+
+.formRegistro{
+    padding-top: 10%;
+    padding-bottom: 10%;
+}
+
+
+
+@media (max-width:700px) {
+    .registro{
+        padding-left: 20%;
+        padding-right: 20%;
+    }
+
+}
