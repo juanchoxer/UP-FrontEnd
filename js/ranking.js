@@ -1,9 +1,9 @@
 const API_URL = "http://localhost:8080";
 
 fetch(API_URL + '/ranking')
-    .then(response => response.json())  // convertir a json
-    .then(json => mostrarRepos(json))    //imprimir los datos en la consola
-    .catch(err => console.log('Solicitud fallida', err)); // Capturar errores
+    .then(response => response.json())
+    .then(json => mostrarRepos(json))
+    .catch(err => console.log('Solicitud fallida', err));
 
 
 function mostrarRepos(json){

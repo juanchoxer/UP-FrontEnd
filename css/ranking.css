@@ -1,4 +1,4 @@
-.lista{
+.rankingLista{
     height: 300px;
     display: flex;
     flex-direction:row;
@@ -24,7 +24,7 @@ body{
 }
 
 @media (max-width:700px) {
-    .lista{
+    .rankingLista{
         flex-direction:column;
     }
 
