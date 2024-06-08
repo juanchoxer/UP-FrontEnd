@@ -1,29 +1,37 @@
 const API_URL = "http://localhost:8080";
 
-fetch(API_URL + '/ranking')
-    .then(response => response.json())  // convertir a json
-    .then(json => mostrarRepos(json))    //imprimir los datos en la consola
-    .catch(err => console.log('Solicitud fallida', err)); // Capturar errores
+document.addEventListener('DOMContentLoaded', function () {
+    document.getElementById('formRegistro').addEventListener('submit', async function (event) {
+        event.preventDefault();
 
+        const datos = {
+            email: document.getElementById('email').value,
+            password: document.getElementById('password').value
+        };
+        const resultadoDiv = document.getElementById('resultado');
 
-function mostrarRepos(json){
-    console.log(json);
-    let repolist = document.getElementById("rankingLista");
-
-    json.forEach((element,index) => {
-
-        let li = document.createElement("li");
-        li.setAttribute("id",index+1);
-
-        div = document.createElement("div");
-
-        li.appendChild(div);
-
-        let img = document.createElement("img");
-        img.src = "images\\" + element.modelo.toLowerCase() + ".jpg";
-        img.classList.add("imagenesRanking")
-        div.appendChild(img);
-
-        repolist.appendChild(li);
+        try {
+            const response = await fetch(API_URL + '/usuarios', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(datos)
+            });
+            
+            if (response.ok) {
+                resultadoDiv.textContent = 'Usuario creado';
+                resultadoDiv.style.color = 'green';
+                alert('Usuario creado');
+                window.location.href = './index.html'; // Actualizar con login
+            } else {
+                const errorData = await response.text();
+                resultadoDiv.textContent = errorData;
+                alert(errorData);
+                resultadoDiv.style.color = 'red';
+            }
+        } catch (error) {
+            console.log(error);
+            resultadoDiv.textContent = error.message;
+            resultadoDiv.style.color = 'red';
+        }
     });
-}
+});
