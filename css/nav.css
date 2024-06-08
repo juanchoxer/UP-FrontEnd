@@ -1,16 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Seymour+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Freeman&family=Seymour+One&display=swap');
+
 *
 {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "News Cycle", sans-serif;
+    font-family: "Freeman", sans-serif;
+    font-size:large;
 }
 
 nav{
    background-color :rgb(230, 230, 230);
    height: 80px; 
    display: flex;
-   flex-direction: row; 
    align-items: center;
    padding: 20px;
    justify-content:space-between;   
@@ -18,18 +22,21 @@ nav{
    border-radius: 25%;
 }
 
+.navBotones{
+    display: flex;
+    justify-content: center;
+}
+
 nav button{
-    font-family: Arial;
     font-size: 100%;
     display: inline-block;
     border: 0;
     background-color: rgb(230, 230, 230);
-    border-color:  rgb(230, 230, 230);
-    border-radius: 100px;
     color: rgb(7, 6, 6);
     padding: 0 10px;
     margin: 10px;
     font-weight: bold;
+    min-width:fit-content;
 }
 
 nav button:hover{
@@ -39,27 +46,34 @@ nav button:hover{
 
 .navLogo{
     width: 200px;
-    object-fit: contain;
-    object-position: center center;
-    justify-content: center;
-    align-items: center;
-    display: flex;
 }
 
 
 @media (max-width:700px) {
     
+    *
+    {    
+        font-size: small;
+    }
+
     nav{
+        justify-content:space-evenly;  
         width: 100%;
     }
 
+    .navBotones{
+        margin-right: auto;
+        padding-right: 10%;
+    }
+
     nav button{
-        height: 15px;
-        width: 50px;
+        width: 20px;
+        padding: 10px;
     }
 
     .navLogo{
-        width: 150px;
+        margin-right: auto;
+        padding-right: 20%;
     }
 
 }

@@ -12,15 +12,14 @@
         
         <nav>
             <img class="navLogo" src="images/logo.png" id="logo"/>
-            <div class="div">
+            <div class="navBotones">
                 <button id="registrarse" onclick="location.href='./registro.html'">Crear cuenta</button>
                 <button id="login">Iniciar sesión</button>
             </div>
         </nav>
 
-        <div class="formulario-registro">
-            <form id="registration-form">
-
+        <div class="registro">
+            <form id="formRegistro">
                 <div class="form-grupo">
                     <label for="email">Email:</label>
                     <input type="email" id="email" name="email" required>
@@ -32,7 +31,7 @@
                 <div class="form-grupo">
                     <button type="submit">Registrarse</button>
                 </div>
-                <div id="mensaje"></div>
+                <div id="resultado"></div>
                  </div>
             </form>
         </div>
