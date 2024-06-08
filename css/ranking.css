@@ -1,0 +1,27 @@
+.lista{
+    height: 300px;
+    display: flex;
+    flex-direction:row;
+    justify-content: space-between;
+    padding: 20px;
+    list-style: none;  
+}
+
+.imagenesRanking{
+    width: 80%;
+    padding: 10px;
+}
+
+.ranking h2{
+    display: flex;
+    justify-content: center;
+}
+
+body{
+    background-color :rgb(240, 240, 240);
+    width: 100%;
+}
+
+@media (max-width:700px) {
+
+}

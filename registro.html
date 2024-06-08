@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head> <!-- no se muestra en la página-->
+        <meta name='viewport' content='width=device-width, initial-scale=1'>        
+        <link rel="stylesheet" type="text/css" href="css/nav.css">
+        <link rel="stylesheet" type="text/css" href="css/registro.css">
+        <script src='js/registro.js'></script>
+        <title>Juguentes Perdidos</title>
+
+    </head>
+    <body>
+        
+        <nav>
+            <img class="navLogo" src="images/logo.png" id="logo"/>
+            <div class="div">
+                <button id="registrarse" onclick="location.href='./registro.html'">Crear cuenta</button>
+                <button id="login">Iniciar sesión</button>
+            </div>
+        </nav>
+
+        <div class="formulario-registro">
+            <form id="registration-form">
+
+                <div class="form-grupo">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-grupo">
+                    <label for="password">Contraseña:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <div class="form-grupo">
+                    <button type="submit">Registrarse</button>
+                </div>
+                <div id="mensaje"></div>
+                 </div>
+            </form>
+        </div>
+    </body>
+
+
+
+
+</html>
