@@ -26,9 +26,16 @@ async function getPedidos(limit, offset) {
         if (response.ok) {
             const pedidos = await response.json();
             pedidos.forEach(pedido => {
+
+                let img = document.createElement("img");
+                img.src = "images\\" + pedido.modelo + "-" + pedido.color + ".jpg";
+                img.classList.add("imagenesModelos")  
+
+
                 const li = document.createElement('li');
                 li.textContent = pedido.modelo + " " + pedido.color + " con " + pedido.accesorio + " id para borrar:" + pedido._id; 
                 listaPedidos.appendChild(li);
+                listaPedidos.appendChild(img);
             });
         } else {
             const errorText = await response.text();

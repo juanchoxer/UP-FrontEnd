@@ -26,8 +26,8 @@ function mostrarRanking(json){
         divTexto = document.createElement("div");
         
         divTexto.textContent = "pedido " + element.contadorPedidos + " veces"; 
-        divTexto.style.fontSize = '180%';
-        divTexto.style.paddingLeft = '10px';  
+        divTexto.style.fontSize = '200%';
+        divTexto.style.paddingLeft = '25px';  
         divTexto.style.marginBottom = '35px';  
 
         li.appendChild(divTexto);
