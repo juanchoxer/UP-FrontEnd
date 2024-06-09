@@ -7,7 +7,6 @@ fetch(API_URL + '/ranking')
 
 
 function mostrarRepos(json){
-    console.log(json);
     let repolist = document.getElementById("rankingLista");
 
     json.forEach((element,index) => {

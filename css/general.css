@@ -58,7 +58,8 @@ nav button:hover{
     color: rgb(100, 100, 100);
 }
 .navLogo{
-    width: 200px;
+    width: 200px;    
+    background-color :rgb(230, 230, 230);
 }
 
 

@@ -1,7 +1,7 @@
 const API_URL = "http://localhost:8080";
 
 document.addEventListener('DOMContentLoaded', function () {
-    document.getElementById('formRegistro').addEventListener('submit', async function (event) {
+    document.getElementById('formLogin').addEventListener('submit', async function (event) {
         event.preventDefault();
 
         const datos = {
@@ -11,17 +11,16 @@ document.addEventListener('DOMContentLoaded', function () {
         const resultadoDiv = document.getElementById('resultado');
 
         try {
-            const response = await fetch(API_URL + '/usuarios', {
+            const response = await fetch(API_URL + '/auth/login', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(datos)
             });
 
             if (response.ok) {
-                resultadoDiv.textContent = 'Usuario creado';
-                resultadoDiv.style.color = 'green';
-                alert('Usuario creado');
-                window.location.href = './login.html';
+                const token = await response.json();
+                localStorage.setItem('token', token);
+                window.location.href = './perfil.html';
             } else {
                 const errorData = await response.text();
                 resultadoDiv.textContent = errorData;
