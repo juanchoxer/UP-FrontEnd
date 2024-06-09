@@ -27,15 +27,37 @@ async function getPedidos(limit, offset) {
             const pedidos = await response.json();
             pedidos.forEach(pedido => {
 
-                let img = document.createElement("img");
-                img.src = "images\\" + pedido.modelo + "-" + pedido.color + ".jpg";
-                img.classList.add("imagenesModelos")  
+                let imgPeluche = document.createElement("img");
+                imgPeluche.src = "images\\" + pedido.modelo + "-" + pedido.color + ".jpg";
+                imgPeluche.classList.add("imagenPedido")  
 
+                let imgAccesorio = document.createElement("img");
+                imgAccesorio.src = GetImagenAccesorio(pedido.accesorio);
+                imgAccesorio.classList.add("imagenPedido")
 
-                const li = document.createElement('li');
-                li.textContent = pedido.modelo + " " + pedido.color + " con " + pedido.accesorio + " id para borrar:" + pedido._id; 
-                listaPedidos.appendChild(li);
-                listaPedidos.appendChild(img);
+                let divImagenes = document.createElement("div");
+                divImagenes.setAttribute("class", "divBotones");
+                divImagenes.appendChild(imgPeluche);
+                divImagenes.appendChild(imgAccesorio);
+
+                let listaTexto = document.createElement('li');
+                listaTexto.setAttribute("class", "listaPedidos");
+                listaTexto.textContent = pedido.modelo + " " + pedido.color + " con " + pedido.accesorio; 
+
+                let btnEliminar = document.createElement('button');
+                btnEliminar.setAttribute("class", "btnEliminar");
+                btnEliminar.textContent = 'Eliminar';
+
+                btnEliminar.addEventListener('click', async function () {
+                    let  confirmacion = confirm('¿Confirma eliminar su pedido?');
+                    if (confirmacion) {
+                        await deletePedido(pedido._id); 
+                    }
+                });
+
+                listaPedidos.appendChild(listaTexto);
+                listaPedidos.appendChild(divImagenes);
+                listaPedidos.appendChild(btnEliminar);
             });
         } else {
             const errorText = await response.text();
@@ -46,6 +68,52 @@ async function getPedidos(limit, offset) {
         console.log(error);
         listaResultado.textContent = 'Error al solicitar los pedidos.' + error;
         listaResultado.style.color = 'red';
+    }
+}
+
+function GetImagenAccesorio(accesorio)
+{
+    var imagen = "";
+    switch (accesorio) {
+        case "notebook":
+            imagen = "notebook";
+            break;
+        case "camiseta y pelota de futbol":
+            console.log("switch2");
+            imagen = "futbol";
+            break;
+        case "guitarra electrica":
+            console.log("switch3");
+            imagen = "guitarra";
+            break;
+    }
+    return "images\\" + imagen + ".jpg";
+}
+
+async function deletePedido(pedidoId) {
+    const API_URL = "http://localhost:8080";
+    let token = localStorage.getItem('token');
+
+    try {
+        const response = await fetch(`${API_URL}/pedidos`, {
+            method: 'DELETE',
+            headers: {
+                'Authorization': `Bearer ${token}`,
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({pedidoId: pedidoId})
+        });
+
+        if (response.ok) {
+            alert('Pedido eliminado correctamente');
+            window.location.href = './perfil.html';
+        } else {
+            const errorData = await response.text();
+            alert(errorData);
+            console.log(errorData);
+        }
+    } catch (error) {
+        console.log(error);
     }
 }
 
