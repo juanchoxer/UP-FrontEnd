@@ -1,9 +1,9 @@
-const API_URL = "http://localhost:8080";
-
 document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('formRegistro').addEventListener('submit', async function (event) {
         event.preventDefault();
 
+        const API_URL = "http://localhost:8080";
+        
         const datos = {
             email: document.getElementById('email').value,
             password: document.getElementById('password').value

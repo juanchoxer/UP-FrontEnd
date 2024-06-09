@@ -1,14 +1,14 @@
-const API_URL = "http://localhost:8080";
+window.onload = async function () {
+    const API_URL = "http://localhost:8080";
 
-fetch(API_URL + '/ranking')
+    fetch(API_URL + '/ranking')
     .then(response => response.json())
     .then(json => mostrarRepos(json))
     .catch(err => console.log('Solicitud fallida', err));
-
+};
 
 function mostrarRepos(json){
     let repolist = document.getElementById("rankingLista");
-
     json.forEach((element,index) => {
 
         let li = document.createElement("li");

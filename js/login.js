@@ -1,9 +1,10 @@
-const API_URL = "http://localhost:8080";
 
 document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('formLogin').addEventListener('submit', async function (event) {
         event.preventDefault();
 
+        const API_URL = "http://localhost:8080";
+        
         const datos = {
             email: document.getElementById('email').value,
             password: document.getElementById('password').value

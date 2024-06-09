@@ -1,0 +1,53 @@
+.nuevoPedido {
+    align-items: center;
+    padding: 20px;
+    flex-direction: row;
+}
+
+.nuevoPedido h2{
+    width: 100%;
+    justify-content: center;
+}
+
+.nuevoPedido button {
+    margin-top: 2%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    display: flex;
+    border: 0;
+    font-size: x-large;
+    width:25%;
+    padding-top: 12px;
+    height: 55px;
+    justify-content: center;
+    min-width:fit-content;
+    border-radius: 10%;
+    background-color: rgb(140, 140, 140);
+}
+.nuevoPedido button:hover{
+    color: rgb(50, 70, 50);
+    background-color: rgb(164, 200, 164);
+}
+
+.listaPedidos{
+    margin-left: 10%;
+    padding-bottom: 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    list-style:decimal;     
+}
+
+.pedidos{
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding-top: 5%;
+    padding-left: 3%;
+    padding-right: 3%;
+}
+
+@media (max-width:700px) {
+    .nuevoPedido button {
+        min-width:60%;
+    }
+}
