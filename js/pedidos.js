@@ -36,7 +36,7 @@ async function getPedidos(limit, offset) {
                 imgAccesorio.classList.add("imagenPedido")
 
                 let divImagenes = document.createElement("div");
-                divImagenes.setAttribute("class", "divBotones");
+                divImagenes.setAttribute("class", "divImagenes");
                 divImagenes.appendChild(imgPeluche);
                 divImagenes.appendChild(imgAccesorio);
 

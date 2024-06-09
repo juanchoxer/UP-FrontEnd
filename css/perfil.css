@@ -42,6 +42,7 @@
     justify-content: center;
     border-radius: 10%;
     background-color: rgb(140, 140, 140);
+    margin-bottom: 4%;
 }
 .btnEliminar:hover{
     color: white;
@@ -58,7 +59,7 @@
 }
 
 .imagenPedido{
-    width: 30%;
+    width: 25%;
 }
 
 .pedidos{
@@ -68,8 +69,7 @@
     padding-right: 3%;
 }
 
-
-.divBotones{
+.divImagenes{
     display: flex;
     justify-content:space-evenly;
 }
