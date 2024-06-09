@@ -1,5 +1,5 @@
 window.onload = async function () {
-    await getPedidos(5,0);
+    await getPedidos(10,0); // hay que implementar la paginacion
 };
 
 async function getPedidos(limit, offset) {
@@ -24,10 +24,10 @@ async function getPedidos(limit, offset) {
             }
         });
         if (response.ok) {
-            const respuesta = await response.json();
-            respuesta.pedidos.forEach(pedido => {
+            const pedidos = await response.json();
+            pedidos.forEach(pedido => {
                 const li = document.createElement('li');
-                li.textContent = pedido.modelo + " " + pedido.color + " con " + pedido.accesorio; 
+                li.textContent = pedido.modelo + " " + pedido.color + " con " + pedido.accesorio + " id para borrar:" + pedido._id; 
                 listaPedidos.appendChild(li);
             });
         } else {
