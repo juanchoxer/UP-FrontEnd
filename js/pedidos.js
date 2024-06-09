@@ -14,7 +14,6 @@ async function getPedidos(limit, offset) {
     let listaResultado = document.getElementById("listaResultado")
 
     let token = localStorage.getItem('token');
-    console.log("token:" + token);
 
     try {
         const response = await fetch(`${API_URL}/pedidos?limit=${datos.limit}&offset=${datos.offset}`, {
@@ -26,7 +25,6 @@ async function getPedidos(limit, offset) {
         });
         if (response.ok) {
             const respuesta = await response.json();
-            console.log(respuesta.pedidos);
             respuesta.pedidos.forEach(pedido => {
                 const li = document.createElement('li');
                 li.textContent = pedido.modelo + " " + pedido.color + " con " + pedido.accesorio; 

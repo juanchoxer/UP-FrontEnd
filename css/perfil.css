@@ -26,8 +26,9 @@
     background-color: rgb(140, 140, 140);
 }
 .nuevoPedido button:hover{
-    color: rgb(50, 70, 50);
-    background-color: rgb(164, 200, 164);
+    color: white;
+    background-color: #45a049;
+    cursor: pointer;
 }
 
 .listaPedidos{

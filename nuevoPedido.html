@@ -3,7 +3,8 @@
     <head>
         <meta name='viewport' content='width=device-width, initial-scale=1'>        
         <link rel="stylesheet" type="text/css" href="css/general.css">
-        <script src='js/logout.js'></script>
+        <link rel="stylesheet" type="text/css" href="css/nuevoPedido.css">
+        <script src='js/nuevoPedido.js'></script>
         <title>Juguetes Perdidos - Pedido</title>
     </head>
     <body>
@@ -11,12 +12,18 @@
         <nav>
             <img class="navLogo" src="images/logo.png" id="logo"/>
             <div class="navBotones">
+                <button id="registrarse" onclick="location.href='./perfil.html'">Mi perfil</button>
                 <button id="logout">Cerrar sesión</button>
             </div>
         </nav>
 
-        <div class="nuevoPedido">
-            <h2>Nada todavia</h2>
+        <div class="divFormulario">
+            <div class="encabezado">
+                <h2>¡Armalo como vos prefieras!</h2>
+            </div>
+            <form class="formulario" id="formPedido"></form>
+            <div class="formResultado" id="resultado"></div>
         </div>
+        
     </body>
 </html>
