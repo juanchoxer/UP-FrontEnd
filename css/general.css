@@ -36,7 +36,7 @@ nav{
    padding: 20px;
    justify-content:space-between;   
    border-bottom: 1px rgba(0, 0, 0, 0.164) solid;
-   border-radius: 10%;   
+   border-radius: 10%;
 }
 .navBotones{
     display: flex;

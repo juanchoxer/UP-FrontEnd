@@ -4,7 +4,7 @@ window.onload = async function () {
 
     let formPedido = document.getElementById("formPedido");
     formPedido.setAttribute("method", "post");
-    formPedido.setAttribute("onsubmit", "submitForm(event)");
+    formPedido.setAttribute("onsubmit", "generarPedido(event)");
 
     var selectModelos = document.createElement("select");
     selectModelos.setAttribute("id", "modelos");
@@ -63,8 +63,78 @@ window.onload = async function () {
     });
 };
 
+async function generarPedido(event){
+    event.preventDefault();
 
-async function submitForm(event) {
+    let divGrupo = document.getElementById('divGrupo')
+    if(divGrupo !== null)
+    {
+        divGrupo.remove();
+    }
+
+    divGrupo = document.createElement('div');
+    divGrupo.setAttribute("id", "divGrupo");
+
+    var modelo = document.getElementById('modelos').value;
+    var color = document.getElementById('colores').value;
+    var accesorio = document.getElementById('accesorios').value;
+
+    let divTexto = document.createElement('h2');
+    divTexto.setAttribute("class", "textoPedido");
+    divTexto.textContent = modelo + " " + color + " con " + accesorio; 
+
+    let imgPeluche = document.createElement("img");
+    imgPeluche.src = "images\\" + modelo + "-" + color + ".jpg";
+    imgPeluche.classList.add("imagenPedido")  
+
+    let imgAccesorio = document.createElement("img");
+    imgAccesorio.src = GetImagenAccesorio(accesorio);
+    imgAccesorio.classList.add("imagenPedido")
+
+    let divImagenes = document.createElement("div");
+    divImagenes.setAttribute("class", "divImagenes");
+    divImagenes.appendChild(imgPeluche);
+    divImagenes.appendChild(imgAccesorio);
+
+    let btnCrear = document.createElement('button');
+    btnCrear.setAttribute("class", "btnCrear");
+    btnCrear.textContent = 'Crear pedido';
+
+    btnCrear.addEventListener('click', async function () {
+        let  confirmacion = confirm('¿Confirma solicitar su pedido?');
+        if (confirmacion) {
+            await CrearPedido(event); 
+        }
+    });
+
+
+    let divPreview = document.getElementById("divPreview");
+    divGrupo.appendChild(divTexto);
+    divGrupo.appendChild(divImagenes);
+    divGrupo.appendChild(btnCrear);
+    divPreview.appendChild(divGrupo);
+}
+
+function GetImagenAccesorio(accesorio)
+{
+    var imagen = "";
+    switch (accesorio) {
+        case "notebook":
+            imagen = "notebook";
+            break;
+        case "camiseta y pelota de futbol":
+            console.log("switch2");
+            imagen = "futbol";
+            break;
+        case "guitarra electrica":
+            console.log("switch3");
+            imagen = "guitarra";
+            break;
+    }
+    return "images\\" + imagen + ".jpg";
+}
+
+async function CrearPedido(event) {
     event.preventDefault();
 
     const API_URL = "http://localhost:8080";
@@ -91,15 +161,12 @@ async function submitForm(event) {
         })
 
         if (response.ok) {
-            resultadoDiv.textContent = 'Pedido creado correctamente';
-            resultadoDiv.style.color = 'green';
             alert('Pedido creado');
             window.location.href = './perfil.html';
         } else {
             const errorData = await response.text();
-            resultadoDiv.textContent = errorData;
             alert(errorData);
-            resultadoDiv.style.color = 'red';
+            console.log(errorData);    
         }
     } catch (error) {
         console.log(error);

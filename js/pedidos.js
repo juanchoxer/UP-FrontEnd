@@ -51,7 +51,7 @@ async function getPedidos(limit, offset) {
                 btnEliminar.addEventListener('click', async function () {
                     let  confirmacion = confirm('¿Confirma eliminar su pedido?');
                     if (confirmacion) {
-                        await deletePedido(pedido._id); 
+                        await EliminarPedido(pedido._id); 
                     }
                 });
 
@@ -90,7 +90,7 @@ function GetImagenAccesorio(accesorio)
     return "images\\" + imagen + ".jpg";
 }
 
-async function deletePedido(pedidoId) {
+async function EliminarPedido(pedidoId) {
     const API_URL = "http://localhost:8080";
     let token = localStorage.getItem('token');
 

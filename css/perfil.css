@@ -22,7 +22,7 @@
     height: 55px;
     justify-content: center;
     min-width:fit-content;
-    border-radius: 10%;
+    border-radius: 100px;
     background-color: rgb(140, 140, 140);
 }
 .nuevoPedido button:hover{
@@ -40,7 +40,7 @@
     border: 0;
     width:15%;
     justify-content: center;
-    border-radius: 10%;
+    border-radius: 100px;
     background-color: rgb(140, 140, 140);
     margin-bottom: 4%;
 }

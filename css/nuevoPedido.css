@@ -15,9 +15,46 @@ input[type="submit"] {
     color: white;
     border: none;
     cursor: pointer;
-    border-radius: 10%; 
+    border-radius: 100px;
 }
 
 input[type="submit"]:hover {
+    background-color: yellowgreen;
+}
+
+
+.imagenPedido{
+    width: 25%;
+}
+
+.divImagenes{
+    display: flex;
+    justify-content:space-evenly;
+}
+
+.textoPedido{
+    margin-left: 10%;
+    padding-left: auto;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+.btnCrear{
+    display: flex;
+    margin-top: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+    background-color: rgb(100, 100, 100);
+    color: white;
+    border: none;
+    border-radius: 100px;
+    cursor: pointer;
+    width: 40%;
+    justify-content: center;
+}
+
+.btnCrear:hover {
     background-color: #45a049;
 }
